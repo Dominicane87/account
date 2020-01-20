@@ -6,6 +6,7 @@ import com.gorin.account.entity.Operation;
 import com.gorin.account.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
@@ -13,7 +14,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-@Transactional
+@Transactional(isolation= Isolation.REPEATABLE_READ)
 public class AccountService {
 
 
